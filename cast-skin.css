@@ -8,7 +8,7 @@
 
 /* Logotipo na tela de inicialização e quando inativo (sem splash) */
 .logo {
-  background-image: url('https://Fabricio94Bz/IPTV/logo.png');
+  background-image: url('https://fabricio94bz.github.io/IPTV/logo.png');
   background-size: 200px 200px; /* Ajuste o tamanho */
   background-position: center center;
   background-repeat: no-repeat;
@@ -22,7 +22,7 @@
 
 /* Tela de fundo quando o receptor está inativo (se não definido, usa .logo) */
 .splash {
-  background-image: url('https://Fabricio94Bz/IPTV/splash-background.jpg');
+  background-image: url('https://fabricio94bz.github.io/IPTV/splash-background.png');
   background-size: cover;
 }
 
