@@ -1,0 +1,35 @@
+/* cast-skin.css */
+
+/* Plano de fundo geral do receptor */
+.background {
+  background-color: #121212; /* Cor sólida de fundo */
+  /* Ou use uma imagem: background: center no-repeat url('https://SEU_USUARIO.github.io/background.png'); */
+}
+
+/* Logotipo na tela de inicialização e quando inativo (sem splash) */
+.logo {
+  background-image: url('https://Fabricio94Bz/IPTV/logo.png');
+  background-size: 200px 200px; /* Ajuste o tamanho */
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+/* Barra de progresso da mídia */
+.progressBar {
+  background-color: #FF5722; /* Cor laranja para a barra */
+  height: 4px; /* Altura da barra */
+}
+
+/* Tela de fundo quando o receptor está inativo (se não definido, usa .logo) */
+.splash {
+  background-image: url('https://Fabricio94Bz/IPTV/splash-background.jpg');
+  background-size: cover;
+}
+
+/* Marca d'água exibida DURANTE a reprodução da mídia */
+.watermark {
+  background-image: url('https://SEU_USUARIO.github.io/watermark.png');
+  background-size: 80px 80px;
+  background-position: bottom right;
+  background-repeat: no-repeat;
+}
