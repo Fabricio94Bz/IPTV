@@ -3,283 +3,484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Termos de Uso - IPTV x</title>
+    <title>Termos de Uso — IPTV x</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+        :root {
+            --bg: #f8f9fb;
+            --surface: #ffffff;
+            --text: #1a1d28;
+            --text-secondary: #5a5f72;
+            --border: #e3e6f0;
+            --accent: #4f6ef7;
+            --accent-hover: #3b54d4;
+            --muted: #f0f2f7;
+            --warn: #f59e0b;
+            --warn-bg: #fffbeb;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,.06);
+            --radius: 12px;
+            --radius-sm: 8px;
         }
-        h1 { color: #E50914; border-bottom: 2px solid #E50914; padding-bottom: 10px; }
-        h2 { color: #333; margin-top: 30px; }
-        h3 { color: #555; }
-        p { margin: 15px 0; }
-        ul { margin: 15px 0; padding-left: 30px; }
-        li { margin: 5px 0; }
-        .last-updated { font-style: italic; color: #666; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; }
-        .contact { background-color: #f0f0f0; padding: 15px; border-radius: 5px; margin: 20px 0; }
-        .important { background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 15px; margin: 20px 0; border-radius: 5px; }
-        .disclaimer { background-color: #f8d7da; border-left: 4px solid #dc3545; padding: 15px; margin: 20px 0; border-radius: 5px; }
-        .ad-terms { background-color: #e8f4f8; border-left: 4px solid #4285f4; padding: 15px; margin: 20px 0; border-radius: 5px; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Header ─────────────────────── */
+        .header {
+            background: linear-gradient(135deg, #1a1d28 0%, #252a3a 100%);
+            padding: 56px 24px 48px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .header .badge {
+            display: inline-block;
+            background: rgba(245,158,11,.18);
+            color: #fcd34d;
+            font-size: .8125rem;
+            font-weight: 500;
+            padding: 4px 14px;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+        .header .update {
+            color: rgba(255,255,255,.5);
+            font-size: .8125rem;
+            margin-top: 12px;
+        }
+
+        /* ── Layout ─────────────────────── */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        /* ── Toc ────────────────────────── */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        .toc h2 {
+            font-size: .8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 24px;
+        }
+        .toc ol li { counter-increment: toc; }
+        .toc ol li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: .875rem;
+            transition: color .15s;
+        }
+        .toc ol li a::before {
+            content: counter(toc) ". ";
+            font-weight: 600;
+            color: var(--warn);
+        }
+        .toc ol li a:hover { color: var(--text); }
+
+        @media (max-width: 600px) {
+            .toc ol { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.45rem; }
+        }
+
+        /* ── Sections ───────────────────── */
+        section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        section h2 .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; height: 32px;
+            background: #f59e0b;
+            color: #1a1d28;
+            border-radius: var(--radius-sm);
+            font-size: .8125rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        section h3 {
+            font-size: .9375rem;
+            font-weight: 600;
+            color: var(--text);
+            margin: 20px 0 8px;
+        }
+        section p, section li {
+            color: var(--text-secondary);
+            font-size: .9375rem;
+        }
+        section p { margin-bottom: 12px; }
+        section p:last-child { margin-bottom: 0; }
+        section ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        section ul li { margin-bottom: 6px; }
+
+        .warning-box {
+            background: var(--warn-bg);
+            border-left: 3px solid var(--warn);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-size: .875rem;
+            color: #5c4a1f;
+        }
+
+        .separator {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
+        /* ── Footer ─────────────────────── */
+        .footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: .8125rem;
+        }
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .footer a:hover { text-decoration: underline; }
+
+        /* ── Smooth scroll ──────────────── */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
+
+<div class="header">
     <h1>Termos de Uso</h1>
-    
-    <p><strong>Última atualização: 28 de abril de 2026</strong></p>
+    <span class="badge">IPTV x</span>
+    <p class="update">Última atualização: 13 de maio de 2026</p>
+</div>
 
-    <p>Bem-vindo ao <strong>IPTV x</strong>. Ao baixar, instalar ou usar este aplicativo, você concorda com estes Termos de Uso. Por favor, leia-os atentamente.</p>
+<div class="container">
 
-    <div class="important">
-        <p><strong>IMPORTANTE:</strong> O IPTV x é um <strong>player de mídia</strong> que permite acessar conteúdo fornecido por servidores Xtream Codes de terceiros. Nós não hospedamos, produzimos, transmitimos ou disponibilizamos qualquer conteúdo audiovisual. O usuário é o único responsável por garantir que possui os direitos necessários para acessar o conteúdo através do servidor configurado.</p>
-    </div>
+    <nav class="toc">
+        <h2>Índice</h2>
+        <ol>
+            <li><a href="#s1">Aceitação</a></li>
+            <li><a href="#s2">Elegibilidade</a></li>
+            <li><a href="#s3">Natureza do serviço</a></li>
+            <li><a href="#s4">Licença de uso</a></li>
+            <li><a href="#s5">Conteúdo de terceiros</a></li>
+            <li><a href="#s6">APIs e serviços integrados</a></li>
+            <li><a href="#s7">Permissões e funcionalidades</a></li>
+            <li><a href="#s8">Propriedade intelectual</a></li>
+            <li><a href="#s9">Conduta do usuário</a></li>
+            <li><a href="#s10">Anúncios e cliques válidos</a></li>
+            <li><a href="#s11">Controle parental</a></li>
+            <li><a href="#s12">Privacidade</a></li>
+            <li><a href="#s13">Limitação de responsabilidade</a></li>
+            <li><a href="#s14">Isenção de garantias</a></li>
+            <li><a href="#s15">Indenização</a></li>
+            <li><a href="#s16">Rescisão</a></li>
+            <li><a href="#s17">Direitos autorais (DMCA)</a></li>
+            <li><a href="#s18">Alterações nos termos</a></li>
+            <li><a href="#s19">Legislação e foro</a></li>
+            <li><a href="#s20">Disposições gerais</a></li>
+        </ol>
+    </nav>
 
-    <!-- ==================== NOVA SEÇÃO SOBRE ANÚNCIOS ==================== -->
-    <div class="ad-terms">
-        <p><strong>📢 Sobre os Anúncios:</strong> Este aplicativo utiliza o <strong>Google AdMob</strong> para exibir anúncios. Para usuários no Espaço Econômico Europeu (EEE) e no Reino Unido, o consentimento é solicitado antes de carregar qualquer anúncio. Você pode gerenciar suas preferências de anúncios a qualquer momento através das configurações do aplicativo. Consulte nossa <a href="https://htmlpreview.github.io/?https://github.com/Fabricio94Bz/IPTV/blob/main/iptvx_pp.html">Política de Privacidade</a> para mais informações sobre como seus dados são processados para publicidade.</p>
-    </div>
-    <!-- ==================== FIM DA SEÇÃO SOBRE ANÚNCIOS ==================== -->
+    <!-- 1 -->
+    <section id="s1">
+        <h2><span class="num">1</span> Aceitação</h2>
+        <p>Ao instalar, acessar ou utilizar o aplicativo IPTV x, você declara ter lido, compreendido e concordado com estes Termos de Uso de forma integral e vinculante. Se você não concorda com qualquer disposição aqui contida, deve abster-se de usar o aplicativo e desinstalá-lo imediatamente.</p>
+        <p>Estes Termos constituem um acordo legal entre você ("Usuário") e a FSB IPTV ("Empresa", "nós"), regendo todo e qualquer uso do aplicativo IPTV x.</p>
+    </section>
 
-    <h2>1. Aceitação dos Termos</h2>
-
-    <p>Ao acessar ou usar o aplicativo IPTV x, você confirma que leu, entendeu e concorda em ficar vinculado a estes Termos de Uso. Se você não concordar com qualquer parte destes termos, não poderá usar o aplicativo.</p>
-
-    <h2>2. Elegibilidade</h2>
-
-    <p>Você declara e garante que:</p>
-    <ul>
-        <li>Tem pelo menos 18 anos de idade, ou a maioridade legal em sua jurisdição;</li>
-        <li>Possui capacidade legal para concordar com estes termos;</li>
-        <li>Não está proibido de receber produtos ou serviços sob as leis aplicáveis;</li>
-        <li>Fornecerá informações verdadeiras, precisas e completas ao usar o aplicativo.</li>
-    </ul>
-
-    <h2>3. Licença de Uso</h2>
-
-    <p>Concedemos a você uma licença limitada, não exclusiva, não transferível e revogável para usar o aplicativo IPTV x em dispositivos de sua propriedade ou controle, exclusivamente para seu uso pessoal e não comercial.</p>
-
-    <p>Esta licença não permite que você:</p>
-    <ul>
-        <li>Copie, modifique, distribua, venda ou alugue qualquer parte do aplicativo;</li>
-        <li>Engenharia reversa, descompilar ou tentar extrair o código-fonte do aplicativo;</li>
-        <li>Remover, ocultar ou alterar qualquer aviso de direitos autorais ou outros avisos de propriedade;</li>
-        <li>Usar o aplicativo para qualquer fim ilegal ou não autorizado;</li>
-        <li>Contornar qualquer medida técnica de proteção implementada no aplicativo.</li>
-    </ul>
-
-    <h2>4. Conteúdo de Terceiros</h2>
-
-    <div class="disclaimer">
-        <p><strong>ISENÇÃO DE RESPONSABILIDADE SOBRE CONTEÚDO:</strong></p>
-        <p>O IPTV x é apenas uma ferramenta de reprodução de mídia. Nós NÃO:</p>
+    <!-- 2 -->
+    <section id="s2">
+        <h2><span class="num">2</span> Elegibilidade</h2>
+        <p>Ao utilizar o IPTV x, você declara e garante que:</p>
         <ul>
-            <li>Hospedamos qualquer conteúdo de vídeo ou áudio;</li>
-            <li>Produzimos ou transmitimos qualquer sinal de TV;</li>
-            <li>Fornecemos listas de canais, filmes ou séries;</li>
-            <li>Mantemos servidores de streaming;</li>
-            <li>Controlamos o conteúdo disponível nos servidores Xtream Codes.</li>
+            <li>Possui pelo menos 18 anos de idade, ou a maioridade legal em sua jurisdição, o que for maior</li>
+            <li>Possui plena capacidade jurídica para consentir com estes Termos</li>
+            <li>Não está legalmente impedido de receber serviços similares em sua jurisdição</li>
+            <li>Fornecerá informações verdadeiras, precisas e completas quando solicitado</li>
+            <li>Utilizará o aplicativo exclusivamente para fins lícitos e em conformidade com estes Termos</li>
         </ul>
-        <p>Todo o conteúdo acessado através do aplicativo é fornecido exclusivamente por servidores de terceiros sobre os quais não temos qualquer controle.</p>
-    </div>
+    </section>
 
-    <h3>4.1 Responsabilidade do Usuário</h3>
-
-    <p>Ao usar o aplicativo, você é o único responsável por:</p>
-    <ul>
-        <li>Garantir que possui os direitos legais para acessar o conteúdo através do servidor Xtream Codes configurado;</li>
-        <li>Verificar se o serviço de IPTV ao qual você está se conectando está em conformidade com as leis de direitos autorais de seu país;</li>
-        <li>Não violar quaisquer leis aplicáveis relacionadas a direitos autorais, propriedade intelectual ou transmissão de conteúdo;</li>
-        <li>Manter a confidencialidade de suas credenciais de acesso ao servidor.</li>
-    </ul>
-
-    <h3>4.2 APIs e Serviços de Terceiros</h3>
-
-    <p>O aplicativo pode integrar-se com serviços de terceiros, incluindo, mas não se limitando a:</p>
-    <ul>
-        <li><strong>The Movie Database (TMDB):</strong> Para enriquecer informações sobre filmes e séries;</li>
-        <li><strong>Google AdMob:</strong> Para exibir anúncios no aplicativo.</li>
-    </ul>
-
-    <p>Estes serviços possuem seus próprios termos de uso e políticas de privacidade, e você concorda em cumpri-los ao utilizar as funcionalidades integradas.</p>
-
-    <h2>5. Funcionalidades e Permissões do Aplicativo</h2>
-
-    <p>Para que as funcionalidades descritas nestes Termos estejam disponíveis, o aplicativo solicita determinadas permissões do seu dispositivo. Você pode aceitar ou negar cada permissão quando solicitado. A negação pode impedir o uso de algumas funcionalidades.</p>
-
-    <h3>5.1 Acesso a Arquivos Locais (Vídeos e Imagens)</h3>
-    <p>O aplicativo permite que você reproduza arquivos de vídeo que estão salvos no seu próprio dispositivo. Esta é uma funcionalidade opcional e totalmente sob seu controle.</p>
-    <p>Para isso, nas versões mais recentes do Android (13+), o aplicativo solicitará acesso para <strong>ler vídeos e imagens</strong> do seu dispositivo. Este acesso é usado exclusivamente para:</p>
-    <ul>
-        <li><strong>Listar e Reproduzir Vídeos:</strong> A permissão de <strong>ler vídeos</strong> é usada para que você possa ver a lista de vídeos disponíveis no seu aparelho, escolher um e reproduzi-lo no player integrado.</li>
-        <li><strong>Exibir Miniaturas:</strong> A permissão de <strong>ler imagens</strong> é usada para carregar a miniatura (thumbnail) de cada vídeo, facilitando a identificação do conteúdo.</li>
-    </ul>
-
-    <h3>5.2 Uso Exclusivamente Local</h3>
-    <p><strong>O IPTV x NÃO copia, envia, faz upload, compartilha ou transfere seus arquivos de vídeo ou imagens para lugar nenhum.</strong> Toda a operação é feita localmente no seu dispositivo.</p>
-
-    <h3>5.3 Outras Permissões</h3>
-    <ul>
-        <li><strong>Internet e Acesso à Rede:</strong> Essenciais para conectar ao servidor Xtream Codes, carregar streams de vídeo e exibir anúncios do AdMob.</li>
-        <li><strong>Gravação de Áudio (RECORD_AUDIO):</strong> Utilizada exclusivamente para a funcionalidade de busca por voz.</li>
-        <li><strong>Vibração (VIBRATE):</strong> Usada para fornecer feedback tátil ao digitar o PIN no controle parental.</li>
-        <li><strong>Uso de Biometria (USE_BIOMETRIC):</strong> Para permitir autenticação por impressão digital no Controle Parental.</li>
-    </ul>
-
-    <h3>5.4 Consentimento</h3>
-    <p>Ao utilizar a funcionalidade de "Vídeos Locais", você concorda com o acesso do aplicativo aos seus arquivos de vídeo e imagens nos termos descritos nesta seção. Você pode revogar esta permissão a qualquer momento nas configurações de aplicativos do seu dispositivo Android.</p>
-
-    <h2>6. Direitos de Propriedade Intelectual</h2>
-
-    <p>O aplicativo IPTV x, incluindo seu código-fonte, design, logotipos, marcas e todos os elementos visuais e funcionais, é de propriedade exclusiva da FSB IPTV e está protegido por leis de direitos autorais, marcas registradas e outras leis de propriedade intelectual.</p>
-
-    <p>Nada nestes termos concede a você qualquer direito sobre nossa propriedade intelectual, exceto a licença limitada de uso descrita na Seção 3.</p>
-
-    <h2>7. Conteúdo Gerado pelo Usuário</h2>
-
-    <p>Você pode criar e armazenar certas informações dentro do aplicativo, como:</p>
-    <ul>
-        <li>Lista de canais, filmes e séries favoritos;</li>
-        <li>Ordem personalizada das categorias;</li>
-        <li>Progresso de reprodução;</li>
-        <li>Configurações de controle parental (PIN).</li>
-    </ul>
-
-    <p>Estas informações são armazenadas exclusivamente em seu dispositivo e não são acessíveis por nós. Você é o único responsável por elas e por qualquer backup que deseje manter.</p>
-
-    <h2>8. Conduta do Usuário</h2>
-
-    <p>Você concorda em não usar o aplicativo para:</p>
-    <ul>
-        <li>Violar quaisquer leis ou regulamentos aplicáveis;</li>
-        <li>Infringir direitos de propriedade intelectual de terceiros;</li>
-        <li>Transmitir qualquer material que seja ilegal, difamatório, obsceno ou de outra forma censurável;</li>
-        <li>Interferir ou interromper a operação do aplicativo;</li>
-        <li>Tentar obter acesso não autorizado a qualquer parte do aplicativo;</li>
-        <li>Usar o aplicativo para qualquer atividade fraudulenta ou enganosa;</li>
-        <li>Carregar ou transmitir vírus, malware ou outro código malicioso;</li>
-        <li>Clicar em seus próprios anúncios ou gerar cliques inválidos artificialmente.</li>
-    </ul>
-
-    <h2>9. Privacidade</h2>
-
-    <p>Seu uso do aplicativo também é regido pela nossa <a href="https://htmlpreview.github.io/?https://github.com/Fabricio94Bz/IPTV/blob/main/iptvx_pp.html">Política de Privacidade</a>, que descreve como coletamos, usamos e protegemos suas informações. Ao usar o aplicativo, você concorda com as práticas descritas na Política de Privacidade.</p>
-
-    <h2>10. Limitação de Responsabilidade</h2>
-
-    <div class="disclaimer">
-        <p><strong>LIMITAÇÃO DE RESPONSABILIDADE:</strong></p>
-        <p>Na extensão máxima permitida pela lei aplicável, o IPTV x, seus desenvolvedores, afiliados, licenciadores e fornecedores não serão responsáveis por:</p>
+    <!-- 3 -->
+    <section id="s3">
+        <h2><span class="num">3</span> Natureza do serviço</h2>
+        <p>O IPTV x é <strong>exclusivamente um player de mídia</strong> — uma ferramenta de software que reproduz conteúdo audiovisual a partir de servidores configurados pelo usuário. Especificamente:</p>
         <ul>
-            <li>Quaisquer danos indiretos, incidentais, especiais, consequenciais ou punitivos;</li>
-            <li>Perda de lucros, receita, dados ou uso;</li>
-            <li>Interrupção de negócios;</li>
-            <li>Danos relacionados ao conteúdo acessado através do aplicativo ou aos anúncios exibidos;</li>
-            <li>Reivindicações de terceiros decorrentes do uso do aplicativo.</li>
+            <li>Não hospedamos, produzimos, transmitimos ou disponibilizamos qualquer conteúdo audiovisual</li>
+            <li>Não fornecemos listas de canais, streams, links ou URLs de conteúdo</li>
+            <li>Não mantemos servidores de streaming</li>
+            <li>Não controlamos, revisamos ou moderamos o conteúdo acessado via servidores Xtream Codes de terceiros</li>
+            <li>O aplicativo não inclui qualquer conteúdo pré-carregado — todo o conteúdo acessado depende exclusivamente das credenciais fornecidas pelo usuário</li>
         </ul>
-        <p>Nossa responsabilidade total por qualquer reclamação relacionada ao aplicativo não excederá o valor pago por você pelo aplicativo (se houver) ou R$100,00, o que for menor.</p>
-    </div>
+    </section>
 
-    <h2>11. Isenção de Garantias</h2>
+    <!-- 4 -->
+    <section id="s4">
+        <h2><span class="num">4</span> Licença de uso</h2>
+        <p>Concedemos a você uma licença limitada, não exclusiva, intransferível e revogável para instalar e utilizar o IPTV x em seus dispositivos pessoais, exclusivamente para uso pessoal e não comercial.</p>
+        <p>São expressamente <strong>proibidos</strong>:</p>
+        <ul>
+            <li>Copiar, modificar, adaptar, traduzir ou criar obras derivadas do aplicativo</li>
+            <li>Distribuir, vender, alugar, sublicenciar ou transferir o aplicativo a terceiros</li>
+            <li>Realizar engenharia reversa, descompilar ou extrair o código-fonte</li>
+            <li>Remover, alterar ou ocultar avisos de propriedade intelectual</li>
+            <li>Utilizar o aplicativo para fins ilícitos ou não autorizados</li>
+            <li>Contornar, desativar ou violar quaisquer proteções técnicas ou mecanismos de segurança</li>
+        </ul>
+    </section>
 
-    <p>O aplicativo é fornecido "como está" e "conforme disponível", sem garantias de qualquer tipo, expressas ou implícitas. Na máxima extensão permitida por lei, não garantimos que:</p>
-    <ul>
-        <li>O aplicativo atenderá a todos os seus requisitos;</li>
-        <li>O aplicativo será ininterrupto, oportuno, seguro ou livre de erros;</li>
-        <li>Os resultados obtidos do uso do aplicativo serão precisos ou confiáveis;</li>
-        <li>Qualquer conteúdo acessado através do aplicativo será legal ou autorizado;</li>
-        <li>Os anúncios exibidos pelo AdMob serão apropriados ou livres de erros.</li>
-    </ul>
+    <!-- 5 -->
+    <section id="s5">
+        <h2><span class="num">5</span> Conteúdo de terceiros</h2>
 
-    <h2>12. Indenização</h2>
+        <h3>5.1 Responsabilidade exclusiva do usuário</h3>
+        <p>O IPTV x não fornece, hospeda ou transmite conteúdo. Todo o conteúdo acessado através do aplicativo provém de servidores Xtream Codes configurados por você. Você é o único responsável por:</p>
+        <ul>
+            <li>Garantir que possui os direitos legais necessários para acessar o conteúdo</li>
+            <li>Verificar a conformidade do conteúdo acessado com as leis de direitos autorais do seu país</li>
+            <li>Não violar leis aplicáveis, incluindo leis de propriedade intelectual</li>
+            <li>Proteger suas credenciais de acesso e manter sua confidencialidade</li>
+        </ul>
 
-    <p>Você concorda em indenizar, defender e isentar o IPTV x, seus desenvolvedores, afiliados, licenciadores e fornecedores de e contra quaisquer reclamações, responsabilidades, danos, perdas e despesas (incluindo honorários advocatícios) decorrentes de:</p>
-    <ul>
-        <li>Seu uso do aplicativo;</li>
-        <li>Sua violação destes Termos de Uso;</li>
-        <li>Sua violação de quaisquer leis ou direitos de terceiros;</li>
-        <li>Qualquer conteúdo acessado por você através do aplicativo;</li>
-        <li>Qualquer violação das políticas do Google AdMob por sua ação ou omissão.</li>
-    </ul>
+        <h3>5.2 Isenção de responsabilidade sobre conteúdo</h3>
+        <p>Não nos responsabilizamos por qualquer conteúdo acessado através do aplicativo. A disponibilidade, qualidade, legalidade ou precisão do conteúdo de terceiros está fora do nosso controle. Qualquer reclamação sobre conteúdo deve ser dirigida ao respectivo provedor.</p>
+    </section>
 
-    <h2>13. Rescisão</h2>
+    <!-- 6 -->
+    <section id="s6">
+        <h2><span class="num">6</span> APIs e serviços integrados</h2>
+        <p>O IPTV x integra os seguintes serviços de terceiros, cada qual regido por seus próprios termos e políticas:</p>
+        <ul>
+            <li><strong>TMDB (The Movie Database):</strong> para obtenção de metadados, sinopses, pôsteres, elenco e recomendações de filmes e séries. Sujeito aos termos do TMDB disponíveis em themoviedb.org</li>
+            <li><strong>Google AdMob:</strong> para exibição de anúncios publicitários. Sujeito aos termos e políticas do Google AdMob</li>
+            <li><strong>Google Cast:</strong> para transmissão de conteúdo para dispositivos Chromecast. Sujeito aos termos de serviço do Google</li>
+        </ul>
+        <p>Não nos responsabilizamos pela disponibilidade, funcionamento ou conteúdo desses serviços de terceiros.</p>
+    </section>
 
-    <p>Podemos suspender ou encerrar seu acesso ao aplicativo a qualquer momento, sem aviso prévio, por qualquer motivo, incluindo, mas não se limitando a:</p>
-    <ul>
-        <li>Violação destes Termos de Uso;</li>
-        <li>Uso ilegal ou não autorizado do aplicativo;</li>
-        <li>Solicitação de autoridades governamentais;</li>
-        <li>Problemas técnicos ou de segurança;</li>
-        <li>Violação das políticas do Google AdMob.</li>
-    </ul>
+    <!-- 7 -->
+    <section id="s7">
+        <h2><span class="num">7</span> Permissões e funcionalidades</h2>
 
-    <p>Você pode encerrar seu uso do aplicativo a qualquer momento, simplesmente desinstalando-o de seus dispositivos.</p>
+        <h3>7.1 Reprodução de arquivos locais</h3>
+        <p>O aplicativo pode reproduzir vídeos e playlists M3U armazenados localmente no dispositivo. No Android 13 e superior, solicita permissões granulares para acesso a vídeos e imagens com a finalidade exclusiva de listagem, reprodução e exibição de miniaturas.</p>
 
-    <h2>14. Alterações nos Termos</h2>
+        <div class="warning-box">
+            <strong>Garantia expressa:</strong> O IPTV x NÃO copia, envia, faz upload, compartilha ou transfere arquivos de vídeo ou imagem do seu dispositivo para qualquer servidor externo. Todo o acesso a arquivos locais opera exclusivamente dentro do dispositivo.
+        </div>
 
-    <p>Podemos modificar estes Termos de Uso periodicamente. Notificaremos você sobre quaisquer alterações publicando os novos termos nesta página e atualizando a data de "última atualização" no topo.</p>
+        <h3>7.2 Outras permissões</h3>
+        <ul>
+            <li><strong>Internet e acesso à rede:</strong> conexão com servidor Xtream Codes, download de EPG, consultas ao TMDB, Google Cast e carregamento de anúncios</li>
+            <li><strong>Microfone:</strong> utilizado pontualmente para o recurso de busca por voz; nenhum áudio é armazenado ou transmitido além do processamento de voz para texto do Android</li>
+        </ul>
+    </section>
 
-    <p>O uso continuado do aplicativo após tais alterações constitui sua aceitação dos novos termos. Se você não concordar com os termos modificados, deverá interromper o uso do aplicativo.</p>
+    <!-- 8 -->
+    <section id="s8">
+        <h2><span class="num">8</span> Propriedade intelectual</h2>
+        <p>O IPTV x, incluindo código-fonte, design de interface, logotipos, ícones, textos, gráficos e demais elementos que o compõem, é propriedade exclusiva da FSB IPTV, protegido pelas leis brasileiras e tratados internacionais de direitos autorais, marcas e propriedade intelectual.</p>
+        <p>Nenhuma disposição destes Termos concede a você qualquer direito além da licença limitada descrita na Seção 4. Todos os direitos não expressamente concedidos são reservados.</p>
+        <p>Marcas de terceiros (Google, Android, Chromecast, TMDB, AdMob) pertencem aos seus respectivos titulares.</p>
+    </section>
 
-    <h2>15. Legislação Aplicável</h2>
+    <!-- 9 -->
+    <section id="s9">
+        <h2><span class="num">9</span> Conduta do usuário</h2>
+        <p>Você concorda em não utilizar o IPTV x para:</p>
+        <ul>
+            <li>Violar leis, regulamentos ou decisões judiciais aplicáveis</li>
+            <li>Infringir direitos de propriedade intelectual de terceiros</li>
+            <li>Transmitir, distribuir ou acessar material ilícito, ofensivo, difamatório ou que viole direitos de terceiros</li>
+            <li>Interferir ou interromper o funcionamento do aplicativo ou de servidores conectados</li>
+            <li>Obter acesso não autorizado a sistemas, redes ou dados</li>
+            <li>Enviar ou transmitir malware, vírus, spyware ou código malicioso</li>
+            <li>Realizar raspagem de dados, mineração ou extração automatizada</li>
+            <li>Praticar fraudes, cliques inválidos ou manipulação de anúncios</li>
+        </ul>
+    </section>
 
-    <p>Estes Termos de Uso serão regidos e interpretados de acordo com as leis da República Federativa do Brasil, independentemente de seus conflitos de disposições legais.</p>
+    <!-- 10 -->
+    <section id="s10">
+        <h2><span class="num">10</span> Anúncios e cliques válidos</h2>
+        <p>O IPTV x é mantido gratuitamente graças à receita publicitária. A integridade desse modelo depende de interações legítimas com os anúncios exibidos. São expressamente proibidos:</p>
+        <ul>
+            <li>Clicar nos próprios anúncios ou solicitar que terceiros o façam</li>
+            <li>Gerar impressões ou cliques artificiais por qualquer meio automatizado</li>
+            <li>Incentivar cliques mediante recompensas ou qualquer outra forma de indução</li>
+            <li>Qualquer prática que viole as políticas de tráfego inválido do Google AdMob</li>
+        </ul>
+        <p>A violação destas disposições constitui infração grave destes Termos e das políticas do Google AdMob, podendo resultar em suspensão do acesso ao aplicativo, encerramento da conta AdMob do editor e medidas legais cabíveis.</p>
+    </section>
 
-    <p>Qualquer ação legal decorrente destes termos será apresentada exclusivamente nos tribunais da Comarca de Curitiba, Paraná, e você consente com a jurisdição pessoal desses tribunais.</p>
+    <!-- 11 -->
+    <section id="s11">
+        <h2><span class="num">11</span> Controle parental</h2>
+        <p>O IPTV x oferece recurso de controle parental com PIN de 4 dígitos e autenticação biométrica opcional, permitindo restringir acesso a categorias de conteúdo adulto predefinidas e palavras-chave personalizáveis.</p>
+        <p>A eficácia do controle parental depende exclusivamente da configuração adequada pelo responsável. A FSB IPTV não se responsabiliza por conteúdo acessado por menores ou pelo contorno das restrições configuradas.</p>
+    </section>
 
-    <h2>16. Disposições Gerais</h2>
+    <!-- 12 -->
+    <section id="s12">
+        <h2><span class="num">12</span> Privacidade</h2>
+        <p>O uso do IPTV x também é regido pela nossa <a href="iptvx_pp.html" style="color:var(--accent);">Política de Privacidade</a>, que detalha como seus dados são tratados. Ao utilizar o aplicativo, você consente com as práticas descritas naquela política.</p>
+    </section>
 
-    <h3>16.1 Divisibilidade</h3>
-    <p>Se qualquer disposição destes Termos for considerada inválida ou inexequível, as disposições restantes permanecerão em pleno vigor e efeito.</p>
+    <!-- 13 -->
+    <section id="s13">
+        <h2><span class="num">13</span> Limitação de responsabilidade</h2>
+        <p>Na máxima extensão permitida pela lei, a FSB IPTV e seus administradores, sócios, empregados e agentes <strong>não serão responsáveis</strong> por:</p>
+        <ul>
+            <li>Danos indiretos, incidentais, especiais, consequenciais, punitivos ou exemplares</li>
+            <li>Lucros cessantes, perda de receita, perda de dados ou interrupção de negócios</li>
+            <li>Danos decorrentes de conteúdo acessado via servidores de terceiros</li>
+            <li>Indisponibilidade, falhas ou interrupções do serviço</li>
+        </ul>
+        <p>A responsabilidade total da FSB IPTV por quaisquer reclamações relacionadas ao aplicativo fica limitada ao maior dos seguintes valores: o valor efetivamente pago por você pelo aplicativo ou R$ 100,00 (cem reais).</p>
+    </section>
 
-    <h3>16.2 Renúncia</h3>
-    <p>A falha em exercer ou fazer cumprir qualquer direito ou disposição destes Termos não constituirá renúncia a tal direito ou disposição.</p>
+    <!-- 14 -->
+    <section id="s14">
+        <h2><span class="num">14</span> Isenção de garantias</h2>
+        <p>O APLICATIVO É FORNECIDO "COMO ESTÁ" E "CONFORME DISPONÍVEL", SEM GARANTIAS DE QUALQUER NATUREZA, EXPRESSAS OU IMPLÍCITAS, INCLUINDO, MAS NÃO SE LIMITANDO A, GARANTIAS DE COMERCIABILIDADE, ADEQUAÇÃO A UM FIM ESPECÍFICO, NÃO VIOLAÇÃO E AUSÊNCIA DE DEFEITOS.</p>
+        <p>Não garantimos que:</p>
+        <ul>
+            <li>O aplicativo funcionará de forma ininterrupta, segura ou livre de erros</li>
+            <li>Defeitos serão corrigidos</li>
+            <li>O conteúdo acessado através do aplicativo é legal, preciso ou confiável</li>
+            <li>O aplicativo é compatível com todos os dispositivos ou versões do Android</li>
+        </ul>
+    </section>
 
-    <h3>16.3 Acordo Integral</h3>
-    <p>Estes Termos, juntamente com a Política de Privacidade, constituem o acordo integral entre você e o IPTV x em relação ao uso do aplicativo, substituindo todos os acordos anteriores.</p>
+    <!-- 15 -->
+    <section id="s15">
+        <h2><span class="num">15</span> Indenização</h2>
+        <p>Você concorda em indenizar, defender e isentar a FSB IPTV, seus administradores, sócios, empregados, agentes e licenciadores de e contra quaisquer reclamações, danos, perdas, responsabilidades, custos e despesas (incluindo honorários advocatícios) decorrentes de:</p>
+        <ul>
+            <li>Seu uso do aplicativo</li>
+            <li>Violação destes Termos</li>
+            <li>Infração de leis ou direitos de terceiros</li>
+            <li>Conteúdo que você acessa através do aplicativo</li>
+            <li>Violação das políticas do Google AdMob</li>
+        </ul>
+    </section>
 
-    <h3>16.4 Cessão</h3>
-    <p>Você não pode ceder ou transferir estes Termos ou seus direitos sob eles, no todo ou em parte, sem nosso consentimento prévio por escrito. Podemos ceder estes Termos sem restrição.</p>
+    <!-- 16 -->
+    <section id="s16">
+        <h2><span class="num">16</span> Rescisão</h2>
+        <p>Estes Termos vigoram por prazo indeterminado enquanto você utilizar o aplicativo.</p>
+        <p><strong>Pela Empresa:</strong> Podemos suspender ou encerrar seu acesso ao aplicativo a qualquer momento, sem aviso prévio, nas seguintes hipóteses:</p>
+        <ul>
+            <li>Violação destes Termos</li>
+            <li>Uso ilícito ou fraudulento do aplicativo</li>
+            <li>Requisição de autoridade judicial ou administrativa competente</li>
+            <li>Problemas técnicos ou de segurança que exijam interrupção do serviço</li>
+            <li>Violação das políticas do Google AdMob</li>
+        </ul>
+        <p><strong>Pelo Usuário:</strong> Você pode rescindir estes Termos a qualquer momento desinstalando o aplicativo e removendo todos os dados associados.</p>
+    </section>
 
-    <h2>17. Recursos de Controle Parental</h2>
+    <!-- 17 -->
+    <section id="s17">
+        <h2><span class="num">17</span> Direitos autorais (DMCA)</h2>
+        <p>Respeitamos os direitos de propriedade intelectual de terceiros e esperamos que nossos usuários façam o mesmo. Se você acredita que material acessível através do IPTV x infringe seus direitos autorais, envie uma notificação contendo:</p>
+        <ul>
+            <li>Identificação da obra protegida supostamente infringida</li>
+            <li>Identificação do conteúdo alegadamente infrator e informações para localizá-lo</li>
+            <li>Seu nome, endereço, telefone e e-mail</li>
+            <li>Declaração de boa-fé atestando que o uso do material não é autorizado pelo titular, seu agente ou pela lei</li>
+            <li>Declaração, sob pena de perjúrio, de que as informações são precisas e de que você é o titular ou está autorizado a agir em nome do titular</li>
+        </ul>
+        <p>Notificações devem ser enviadas para: <a href="mailto:iptvxfsb@gmail.com" style="color:var(--accent);">iptvxfsb@gmail.com</a></p>
+    </section>
 
-    <p>O aplicativo oferece recursos de controle parental que permitem restringir o acesso a determinados conteúdos. No entanto:</p>
-    <ul>
-        <li>O controle parental é de responsabilidade exclusiva do usuário;</li>
-        <li>Não nos responsabilizamos por conteúdo acessado por menores de idade;</li>
-        <li>Recomendamos que pais ou responsáveis monitorem ativamente o uso do aplicativo por crianças e adolescentes;</li>
-        <li>O PIN de controle parental deve ser mantido em segredo e não compartilhado.</li>
-    </ul>
+    <!-- 18 -->
+    <section id="s18">
+        <h2><span class="num">18</span> Alterações nos termos</h2>
+        <p>Reservamo-nos o direito de modificar estes Termos a qualquer momento. As alterações entrarão em vigor na data de sua publicação. O uso continuado do aplicativo após a publicação de alterações constitui aceitação tácita dos novos Termos. Recomendamos a revisão periódica desta página.</p>
+        <p>Alterações substanciais serão comunicadas com destaque no aplicativo, quando tecnicamente viável.</p>
+    </section>
 
-    <h2>18. Anúncios e Cliques Válidos</h2>
+    <!-- 19 -->
+    <section id="s19">
+        <h2><span class="num">19</span> Legislação e foro</h2>
+        <p>Estes Termos são regidos pelas leis da República Federativa do Brasil.</p>
+        <p>Quaisquer litígios decorrentes destes Termos serão submetidos à jurisdição exclusiva do Foro da Comarca de Curitiba, Estado do Paraná, Brasil, com renúncia a qualquer outro foro, por mais privilegiado que seja.</p>
+    </section>
 
-    <p>O aplicativo exibe anúncios fornecidos pelo Google AdMob. Ao usar o aplicativo, você concorda com as seguintes condições relacionadas aos anúncios:</p>
-    <ul>
-        <li><strong>Não clicar em seus próprios anúncios:</strong> É estritamente proibido clicar nos anúncios exibidos no aplicativo com a intenção de gerar receita artificial.</li>
-        <li><strong>Não solicitar que outros cliquem:</strong> Você não pode solicitar, incentivar ou induzir terceiros a clicar em anúncios no aplicativo.</li>
-        <li><strong>Interação genuína:</strong> A interação com os anúncios deve ser genuína e baseada no interesse do usuário.</li>
-        <li>Qualquer violação destas regras pode resultar em suspensão do acesso ao aplicativo e é passível de medidas legais.</li>
-    </ul>
+    <!-- 20 -->
+    <section id="s20">
+        <h2><span class="num">20</span> Disposições gerais</h2>
 
-    <h2>19. Notificações de Violação de Direitos Autorais</h2>
+        <h3>20.1 Divisibilidade</h3>
+        <p>Se qualquer disposição destes Termos for considerada inválida ou inexequível, as demais disposições permanecerão em pleno vigor e efeito.</p>
 
-    <p>Se você acredita que qualquer conteúdo acessível através do aplicativo viola seus direitos autorais, entre em contato conosco com as seguintes informações:</p>
-    <ul>
-        <li>Identificação da obra protegida por direitos autorais que você alega ter sido violada;</li>
-        <li>Identificação do conteúdo que você alega estar infringindo;</li>
-        <li>Informações suficientes para que possamos localizar o conteúdo (URL do servidor, nome do canal/filme/série);</li>
-        <li>Seu nome, endereço, número de telefone e endereço de e-mail;</li>
-        <li>Uma declaração de que você acredita de boa fé que o uso do conteúdo não é autorizado;</li>
-        <li>Uma declaração, sob pena de perjúrio, de que as informações são precisas e que você é o proprietário ou está autorizado a agir em seu nome.</li>
-    </ul>
+        <h3>20.2 Não renúncia</h3>
+        <p>A omissão ou tolerância no exercício de qualquer direito ou disposição destes Termos não constitui renúncia, novação ou precedente. Nenhuma renúncia será eficaz a menos que feita por escrito e assinada pela parte renunciante.</p>
 
-    <div class="contact">
-        <p><strong>Contato:</strong> Se você tiver dúvidas sobre estes Termos de Uso, entre em contato conosco através do e-mail: <strong>iptvxfsb@gmail.com</strong></p>
-    </div>
+        <h3>20.3 Acordo integral</h3>
+        <p>Estes Termos, juntamente com a Política de Privacidade, constituem o acordo integral entre você e a FSB IPTV em relação ao objeto aqui tratado, substituindo todos os entendimentos e acordos anteriores.</p>
 
-    <p class="last-updated">Estes Termos de Uso foram atualizados pela última vez em 28 de abril de 2026.</p>
+        <h3>20.4 Cessão</h3>
+        <p>Você não poderá ceder ou transferir seus direitos ou obrigações decorrentes destes Termos sem consentimento prévio por escrito da FSB IPTV. A Empresa poderá ceder estes Termos livremente, inclusive para afiliadas ou em caso de reorganização societária.</p>
+    </section>
+
+</div>
+
+<div class="footer">
+    <p>IPTV x &copy; 2026 — FSB IPTV &middot; <a href="iptvx_pp.html">Política de Privacidade</a> &middot; <a href="mailto:iptvxfsb@gmail.com">iptvxfsb@gmail.com</a></p>
+</div>
+
 </body>
 </html>

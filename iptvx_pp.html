@@ -3,199 +3,378 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Política de Privacidade - IPTV x</title>
+    <title>Política de Privacidade — IPTV x</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #f9f9f9;
+        :root {
+            --bg: #f8f9fb;
+            --surface: #ffffff;
+            --text: #1a1d28;
+            --text-secondary: #5a5f72;
+            --border: #e3e6f0;
+            --accent: #4f6ef7;
+            --accent-hover: #3b54d4;
+            --muted: #f0f2f7;
+            --shadow-sm: 0 1px 2px rgba(0,0,0,.04);
+            --shadow-md: 0 4px 12px rgba(0,0,0,.06);
+            --radius: 12px;
+            --radius-sm: 8px;
         }
-        h1 { color: #E50914; border-bottom: 2px solid #E50914; padding-bottom: 10px; }
-        h2 { color: #333; margin-top: 30px; }
-        h3 { color: #555; }
-        p { margin: 15px 0; }
-        ul { margin: 15px 0; padding-left: 30px; }
-        li { margin: 5px 0; }
-        .last-updated { font-style: italic; color: #666; margin-top: 40px; padding-top: 20px; border-top: 1px solid #ddd; }
-        .contact { background-color: #f0f0f0; padding: 15px; border-radius: 5px; margin: 20px 0; }
-        .ad-section { background-color: #e8f4f8; border-left: 4px solid #4285f4; padding: 15px; margin: 20px 0; border-radius: 5px; }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── Header ─────────────────────── */
+        .header {
+            background: linear-gradient(135deg, #1a1d28 0%, #252a3a 100%);
+            padding: 56px 24px 48px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,.06);
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 8px;
+        }
+        .header .badge {
+            display: inline-block;
+            background: rgba(79,110,247,.18);
+            color: #a3b4ff;
+            font-size: .8125rem;
+            font-weight: 500;
+            padding: 4px 14px;
+            border-radius: 100px;
+            letter-spacing: 0.02em;
+        }
+        .header .update {
+            color: rgba(255,255,255,.5);
+            font-size: .8125rem;
+            margin-top: 12px;
+        }
+
+        /* ── Layout ─────────────────────── */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        /* ── Toc ────────────────────────── */
+        .toc {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 28px 32px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-sm);
+        }
+        .toc h2 {
+            font-size: .8125rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+        .toc ol {
+            list-style: none;
+            counter-reset: toc;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6px 24px;
+        }
+        .toc ol li { counter-increment: toc; }
+        .toc ol li a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: .875rem;
+            transition: color .15s;
+        }
+        .toc ol li a::before {
+            content: counter(toc) ". ";
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .toc ol li a:hover { color: var(--accent); }
+
+        @media (max-width: 600px) {
+            .toc ol { grid-template-columns: 1fr; }
+            .header h1 { font-size: 1.45rem; }
+        }
+
+        /* ── Sections ───────────────────── */
+        section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px 36px;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow-sm);
+        }
+        section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        section h2 .num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px; height: 32px;
+            background: var(--accent);
+            color: #fff;
+            border-radius: var(--radius-sm);
+            font-size: .8125rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+        section p, section li {
+            color: var(--text-secondary);
+            font-size: .9375rem;
+        }
+        section p { margin-bottom: 12px; }
+        section p:last-child { margin-bottom: 0; }
+        section ul {
+            padding-left: 20px;
+            margin-bottom: 12px;
+        }
+        section ul li { margin-bottom: 6px; }
+
+        .highlight-box {
+            background: #f5f3ff;
+            border-left: 3px solid var(--accent);
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            padding: 14px 18px;
+            margin: 16px 0;
+            font-size: .875rem;
+            color: #3b3f5a;
+        }
+
+        /* ── Footer ─────────────────────── */
+        .footer {
+            text-align: center;
+            padding: 32px 24px;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: .8125rem;
+        }
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .footer a:hover { text-decoration: underline; }
+
+        /* ── Smooth scroll ──────────────── */
+        html { scroll-behavior: smooth; }
     </style>
 </head>
 <body>
+
+<div class="header">
     <h1>Política de Privacidade</h1>
-    
-    <p><strong>Última atualização: 28 de abril de 2026</strong></p>
+    <span class="badge">IPTV x</span>
+    <p class="update">Última atualização: 13 de maio de 2026</p>
+</div>
 
-    <p>Esta Política de Privacidade descreve como o aplicativo <strong>IPTV x</strong> ("nós", "nosso" ou "aplicativo") coleta, usa e compartilha suas informações quando você utiliza nosso aplicativo para dispositivos móveis.</p>
+<div class="container">
 
-    <!-- NOVA SEÇÃO DE DESTAQUE SOBRE ANÚNCIOS -->
-    <div class="ad-section">
-        <p><strong>📢 Informação importante sobre anúncios:</strong> Este aplicativo utiliza o <strong>Google AdMob</strong> para exibir anúncios. Para usuários no Espaço Econômico Europeu (EEE) e no Reino Unido, o consentimento é solicitado antes de carregar qualquer anúncio. Consulte a <strong>Seção 4</strong> para mais detalhes.</p>
-    </div>
+    <nav class="toc">
+        <h2>Índice</h2>
+        <ol>
+            <li><a href="#s1">Informações coletadas</a></li>
+            <li><a href="#s2">Anúncios e Google AdMob</a></li>
+            <li><a href="#s3">Armazenamento de dados</a></li>
+            <li><a href="#s4">Compartilhamento</a></li>
+            <li><a href="#s5">Permissões do aplicativo</a></li>
+            <li><a href="#s6">Segurança</a></li>
+            <li><a href="#s7">Direitos do titular (LGPD)</a></li>
+            <li><a href="#s8">Retenção e exclusão</a></li>
+            <li><a href="#s9">Privacidade de crianças</a></li>
+            <li><a href="#s10">Transferência internacional</a></li>
+            <li><a href="#s11">Alterações nesta política</a></li>
+            <li><a href="#s12">Contato</a></li>
+        </ol>
+    </nav>
 
-    <h2>1. Informações que Coletamos</h2>
+    <!-- 1 -->
+    <section id="s1">
+        <h2><span class="num">1</span> Informações coletadas</h2>
 
-    <h3>1.1 Informações Fornecidas por Você</h3>
-    <ul>
-        <li><strong>Credenciais de Acesso:</strong> Quando você faz login no aplicativo, coletamos seu nome de usuário, senha e URL do servidor Xtream Codes. Estas informações são armazenadas apenas localmente no seu dispositivo e são usadas exclusivamente para autenticar você no serviço de IPTV contratado.</li>
-        <li><strong>Preferências do Usuário:</strong> Coletamos informações sobre suas preferências dentro do aplicativo, como:
-            <ul>
-                <li>Canais favoritos, filmes e séries</li>
-                <li>Ordem personalizada das categorias</li>
-                <li>Configurações de fonte de informação (Xtream/TMDB)</li>
-                <li>PIN do controle parental</li>
-                <li>Progresso de reprodução de filmes e episódios</li>
-            </ul>
-        </li>
-    </ul>
+        <p><strong>Fornecidas ativamente por você:</strong></p>
+        <ul>
+            <li>Credenciais de acesso ao servidor Xtream Codes (usuário, senha e URL do servidor)</li>
+            <li>Nome e avatar dos perfis criados no sistema multi-perfil</li>
+            <li>PIN de 4 dígitos do controle parental</li>
+            <li>Canais, filmes e séries marcados como favoritos</li>
+            <li>Ordem personalizada das categorias</li>
+            <li>Termos de busca por voz (quando utiliza o microfone)</li>
+        </ul>
 
-    <h3>1.2 Informações Coletadas Automaticamente</h3>
-    <ul>
-        <li><strong>Informações de Uso:</strong> Coletamos informações sobre como você interage com o aplicativo, como quais conteúdos você assiste e por quanto tempo, para melhorar sua experiência (continuar assistindo de onde parou).</li>
-        <li><strong>Informações do Dispositivo:</strong> Podemos coletar informações sobre o seu dispositivo móvel, incluindo modelo, sistema operacional e identificadores únicos do dispositivo, apenas para garantir o funcionamento adequado do aplicativo.</li>
-        <li><strong>Logs de Erro:</strong> Em caso de falhas no aplicativo, podemos coletar informações sobre o erro para diagnosticar e corrigir problemas.</li>
-    </ul>
+        <p><strong>Coletadas automaticamente pelo app:</strong></p>
+        <ul>
+            <li>Progresso de reprodução (timestamp de onde parou em cada conteúdo)</li>
+            <li>Cache de miniaturas e metadados de conteúdo (para carregamento rápido)</li>
+            <li>Dados de EPG (programação eletrônica) armazenados localmente</li>
+            <li>Logs de erro e diagnóstico (em caso de falhas)</li>
+        </ul>
 
-    <h3>1.3 Informações de Serviços de Terceiros</h3>
-    <ul>
-        <li><strong>TMDB (The Movie Database):</strong> Quando você opta por buscar informações adicionais de filmes e séries, o aplicativo consulta a API pública do TMDB. Estas consultas não incluem informações pessoais identificáveis.</li>
-    </ul>
+        <p><strong>Obtidas de APIs de terceiros:</strong></p>
+        <ul>
+            <li>Metadados do TMDB (The Movie Database): títulos, sinopses, pôsteres, elenco e recomendações. Essas consultas não incluem dados pessoais identificáveis.</li>
+        </ul>
 
-    <!-- ==================== NOVA SEÇÃO ADMOB ==================== -->
-    <h2>2. Anúncios e Google AdMob</h2>
+        <div class="highlight-box">
+            <strong>Importante:</strong> O IPTV x não coleta biometricamente sua digital. A autenticação por impressão digital no controle parental é processada inteiramente pelo sistema operacional Android; o app recebe apenas uma confirmação binária (sucesso/falha), sem acesso ao dado biométrico.
+        </div>
+    </section>
 
-    <p>Este aplicativo utiliza o <strong>Google AdMob</strong> para exibir anúncios. O AdMob é um serviço de publicidade fornecido pela <strong>Google LLC</strong> ("Google"), localizada em 1600 Amphitheatre Parkway, Mountain View, CA 94043, EUA.</p>
+    <!-- 2 -->
+    <section id="s2">
+        <h2><span class="num">2</span> Anúncios e Google AdMob</h2>
+        <p>O aplicativo utiliza o Google AdMob para exibição de anúncios. O AdMob é um serviço fornecido pela Google LLC e pode coletar os seguintes dados para exibição e medição de anúncios:</p>
+        <ul>
+            <li>Advertising ID do Android (identificador de publicidade redefinível)</li>
+            <li>Endereço IP (para localização aproximada e segurança)</li>
+            <li>Dados de interação: cliques, visualizações e conversões</li>
+            <li>Informações do dispositivo: modelo, sistema operacional, versão do app, idioma e tipo de rede</li>
+            <li>Dados de desempenho e diagnóstico dos anúncios</li>
+        </ul>
 
-    <h3>2.1 Coleta de Dados pelo AdMob</h3>
-    <p>Para exibir anúncios e medir sua eficácia, o AdMob pode coletar e usar automaticamente as seguintes informações do seu dispositivo:</p>
-    <ul>
-        <li><strong>Identificadores de publicidade:</strong> Android Advertising ID (AAID), que pode ser redefinido ou desativado pelo usuário nas configurações do dispositivo;</li>
-        <li><strong>Endereço de IP:</strong> Usado para determinar localização geográfica aproximada e para segurança da rede;</li>
-        <li><strong>Dados de interação com anúncios:</strong> Cliques, visualizações, tempo de exibição e se o anúncio levou a uma instalação de aplicativo;</li>
-        <li><strong>Informações do aplicativo e do dispositivo:</strong> Modelo do dispositivo, sistema operacional, versão do aplicativo, idioma do sistema e tipo de conexão de rede (Wi-Fi ou dados móveis);</li>
-        <li><strong>Dados sobre desempenho de anúncios:</strong> Se um anúncio foi visualizado completamente, se o usuário interagiu com ele e se houve conversões.</li>
-    </ul>
+        <p><strong>Consentimento no EEE e Reino Unido:</strong> Usuários localizados no Espaço Econômico Europeu e no Reino Unido recebem uma solicitação explícita de consentimento via Google UMP SDK (User Messaging Platform) antes do carregamento de qualquer anúncio. É possível aceitar ou recusar anúncios personalizados e alterar essa escolha a qualquer momento pelo menu "Privacidade e Anúncios" nas configurações do app.</p>
 
-    <h3>2.2 Personalização de Anúncios</h3>
-    <p>O AdMob pode utilizar os dados coletados para exibir <strong>anúncios personalizados</strong> com base nos seus interesses e comportamento de navegação. Isso significa que os anúncios mostrados podem ser mais relevantes para você.</p>
-    <p>Para mais informações sobre como o Google personaliza anúncios, consulte: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+        <p><strong>Desativação global:</strong> Você pode desativar a personalização de anúncios no nível do sistema Android em Configurações → Google → Anúncios → Desativar anúncios personalizados. Você também pode redefinir seu Advertising ID nesse mesmo menu.</p>
 
-    <h3>2.3 Consentimento para Usuários na Europa (GDPR)</h3>
-    <p><strong>Para usuários localizados no Espaço Econômico Europeu (EEE) e no Reino Unido:</strong></p>
-    <ul>
-        <li>O aplicativo solicitará seu <strong>consentimento explícito</strong> antes de carregar qualquer anúncio;</li>
-        <li>Você poderá <strong>aceitar ou recusar</strong> anúncios personalizados;</li>
-        <li>Você pode <strong>alterar sua escolha</strong> a qualquer momento através das configurações do aplicativo (menu "Privacidade e Anúncios");</li>
-        <li>O aplicativo utiliza o <strong>User Messaging Platform (UMP) SDK</strong> do Google para gerenciar o consentimento em conformidade com as políticas do IAB Europe.</li>
-    </ul>
+        <p>O Google AdMob é o único parceiro de anúncios atualmente integrado ao aplicativo.</p>
+    </section>
 
-    <h3>2.4 Parceiros de Anúncios</h3>
-    <p>O único parceiro de anúncios atualmente integrado a este aplicativo é o <strong>Google AdMob</strong>. A política de privacidade do Google pode ser consultada em: <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></p>
-    <p>Se no futuro integrarmos outros parceiros de anúncios, esta política será atualizada para refletir essas mudanças, e o consentimento será solicitado novamente, se necessário.</p>
+    <!-- 3 -->
+    <section id="s3">
+        <h2><span class="num">3</span> Armazenamento de dados</h2>
+        <p>Todas as informações gerenciadas pelo aplicativo são armazenadas <strong>exclusivamente no dispositivo do usuário</strong>, utilizando banco de dados Room (SQLite) e SharedPreferences do Android. Nenhum dado de uso, credenciais, favoritos, progresso ou configurações é enviado ou mantido em servidores próprios da FSB IPTV.</p>
+        <p>Isso inclui:</p>
+        <ul>
+            <li>Credenciais de login do servidor Xtream Codes</li>
+            <li>Perfis de usuário e suas preferências</li>
+            <li>Favoritos e progresso de reprodução</li>
+            <li>Cache de miniaturas e EPG</li>
+            <li>PIN do controle parental</li>
+            <li>Configurações de idioma, tema e player</li>
+        </ul>
+    </section>
 
-    <h3>2.5 Como Gerenciar ou Desativar a Personalização de Anúncios</h3>
-    <ul>
-        <li><strong>Em dispositivos Android:</strong> Você pode redefinir ou desativar seu ID de publicidade acessando <strong>Configurações → Google → Anúncios → Desativar anúncios personalizados</strong>.</li>
-        <li><strong>Através do aplicativo:</strong> Usuários no EEE/Reino Unido podem alterar sua escolha de consentimento a qualquer momento através das configurações do aplicativo.</li>
-        <li><strong>Opt-out global:</strong> Você também pode visitar <a href="https://www.aboutads.info/choices/" target="_blank">https://www.aboutads.info/choices/</a> para gerenciar preferências de anúncios baseados em interesses.</li>
-    </ul>
+    <!-- 4 -->
+    <section id="s4">
+        <h2><span class="num">4</span> Compartilhamento de informações</h2>
+        <p>O IPTV x <strong>não compartilha dados pessoais com terceiros</strong>, exceto nas seguintes situações:</p>
+        <ul>
+            <li><strong>Com seu consentimento:</strong> ao optar por buscar metadados no TMDB ou ao consentir com anúncios personalizados via AdMob</li>
+            <li><strong>Google AdMob:</strong> conforme descrito na Seção 2, para exibição e medição de anúncios</li>
+            <li><strong>Google Cast:</strong> ao utilizar a funcionalidade de transmissão, metadados do conteúdo (título, URL do stream) são enviados ao dispositivo Chromecast para reprodução</li>
+            <li><strong>Obrigação legal:</strong> mediante ordem judicial ou requisição de autoridade competente</li>
+        </ul>
+    </section>
 
-    <!-- ==================== FIM DA SEÇÃO ADMOB ==================== -->
+    <!-- 5 -->
+    <section id="s5">
+        <h2><span class="num">5</span> Permissões do aplicativo</h2>
+        <p>As permissões são solicitadas apenas no momento em que cada funcionalidade é utilizada pela primeira vez — nunca todas de uma vez na inicialização.</p>
+        <ul>
+            <li><strong>Acesso à Internet:</strong> conexão com servidor Xtream Codes, carregamento de EPG, consultas ao TMDB, transmissão via Google Cast e carregamento de anúncios</li>
+            <li><strong>READ_MEDIA_VIDEO (Android 13+):</strong> listar e reproduzir arquivos de vídeo locais</li>
+            <li><strong>READ_MEDIA_IMAGES (Android 13+):</strong> exibir miniaturas de vídeos locais</li>
+            <li><strong>Gravação de áudio:</strong> exclusivamente para o recurso de busca por voz</li>
+            <li><strong>Vibração:</strong> feedback tátil ao digitar o PIN do controle parental</li>
+            <li><strong>Biometria:</strong> confirmação de impressão digital para acesso ao controle parental (processada pelo Android; o app não lê o dado biométrico)</li>
+        </ul>
+        <p>O aplicativo <strong>não envia, copia ou faz upload</strong> de arquivos de vídeo ou imagem do dispositivo para servidores externos. Todo acesso a arquivos locais é estritamente local.</p>
+    </section>
 
-    <h2>3. Armazenamento de Dados</h2>
+    <!-- 6 -->
+    <section id="s6">
+        <h2><span class="num">6</span> Segurança</h2>
+        <p>Como todos os dados gerenciados pelo app residem exclusivamente no dispositivo, a segurança depende em grande parte das medidas adotadas por você:</p>
+        <ul>
+            <li>Manter bloqueio de tela ativo no dispositivo</li>
+            <li>Manter o sistema operacional Android atualizado</li>
+            <li>Não compartilhar o dispositivo com pessoas não autorizadas</li>
+            <li>Utilizar o PIN do controle parental para restringir acesso a categorias adultas</li>
+        </ul>
+        <p>O app utiliza permissões granulares do Android e não armazena senhas em texto plano fora do banco de dados local protegido pelo sandbox do Android.</p>
+    </section>
 
-    <p>Todas as informações coletadas pelo aplicativo são armazenadas <strong>exclusivamente no seu dispositivo</strong>. Nós não armazenamos suas informações em servidores próprios. Os dados permanecem no seu aparelho e somente você tem acesso a eles.</p>
+    <!-- 7 -->
+    <section id="s7">
+        <h2><span class="num">7</span> Direitos do titular (LGPD)</h2>
+        <p>Nos termos da Lei Geral de Proteção de Dados (Lei nº 13.709/2018), você tem os seguintes direitos:</p>
+        <ul>
+            <li><strong>Acesso:</strong> visualizar seus dados armazenados — disponíveis no próprio aplicativo (favoritos, progresso, perfis e configurações)</li>
+            <li><strong>Correção:</strong> alterar dados incompletos ou desatualizados a qualquer momento nas configurações</li>
+            <li><strong>Exclusão:</strong> remover todos os dados locais pela opção "Limpar Todos os Dados" nas configurações ou desinstalando o aplicativo</li>
+            <li><strong>Revogação de consentimento:</strong> para anúncios personalizados, altere nas configurações de privacidade do app; para permissões, revogue nas configurações do Android</li>
+            <li><strong>Portabilidade:</strong> mediante solicitação, os dados armazenados localmente podem ser exportados em formato estruturado</li>
+        </ul>
+        <p>Para exercer esses direitos, entre em contato pelo e-mail abaixo. Responderemos em até 15 dias.</p>
+    </section>
 
-    <p>Isso inclui:</p>
-    <ul>
-        <li>Credenciais de login (usuário, senha, URL do servidor)</li>
-        <li>Lista de favoritos</li>
-        <li>Progresso de reprodução</li>
-        <li>Configurações e preferências</li>
-        <li>PIN do controle parental</li>
-    </ul>
+    <!-- 8 -->
+    <section id="s8">
+        <h2><span class="num">8</span> Retenção e exclusão de dados</h2>
+        <p>Os dados permanecem armazenados localmente enquanto o aplicativo estiver instalado. Ao fazer logout de um perfil, seus favoritos, progresso e configurações são removidos. A desinstalação do aplicativo remove permanentemente todos os dados mantidos por ele.</p>
+        <p>Dados em posse de terceiros (Google AdMob, TMDB) seguem as políticas de retenção próprias de cada serviço.</p>
+    </section>
 
-    <h2>4. Compartilhamento de Informações</h2>
+    <!-- 9 -->
+    <section id="s9">
+        <h2><span class="num">9</span> Privacidade de crianças</h2>
+        <p>O IPTV x não é direcionado a menores de 13 anos. Não coletamos intencionalmente dados pessoais de crianças. O recurso de controle parental (PIN + biometria) é fornecido como ferramenta para pais e responsáveis restringirem acesso a conteúdo adulto, mas sua eficácia depende exclusivamente da configuração e supervisão do responsável.</p>
+        <p>Se você for pai, mãe ou responsável e identificar que uma criança forneceu dados pessoais sem seu consentimento, entre em contato para que possamos tomar as medidas cabíveis.</p>
+    </section>
 
-    <p>Nós <strong>não compartilhamos</strong> suas informações pessoais com terceiros, exceto nas seguintes circunstâncias:</p>
-    <ul>
-        <li><strong>Com seu consentimento:</strong> Quando você opta por buscar informações do TMDB ou quando permite a exibição de anúncios personalizados via Google AdMob.</li>
-        <li><strong>Para cumprir obrigações legais:</strong> Podemos divulgar suas informações se exigido por lei ou em resposta a solicitações válidas de autoridades públicas.</li>
-        <li><strong>Parceiros de anúncios:</strong> Conforme descrito na Seção 2, o Google AdMob pode processar dados conforme sua própria política de privacidade.</li>
-    </ul>
+    <!-- 10 -->
+    <section id="s10">
+        <h2><span class="num">10</span> Transferência internacional</h2>
+        <p>Seus dados locais não saem do dispositivo. Contudo, ao interagir com serviços de terceiros:</p>
+        <ul>
+            <li>O Google AdMob pode processar dados publicitários em servidores nos Estados Unidos ou em outros países onde a Google opera, sob as cláusulas contratuais padrão e certificações de privacidade aplicáveis</li>
+            <li>O TMDB pode processar consultas de metadados em seus servidores, sem associação a dados pessoais identificáveis</li>
+        </ul>
+    </section>
 
-    <h2>5. Permissões do Aplicativo</h2>
+    <!-- 11 -->
+    <section id="s11">
+        <h2><span class="num">11</span> Alterações nesta política</h2>
+        <p>Esta política pode ser atualizada periodicamente. Alterações relevantes serão comunicadas com uma nova data de publicação no topo do documento. Recomendamos a revisão periódica desta página. O uso continuado do aplicativo após alterações implica concordância com os novos termos da política.</p>
+    </section>
 
-    <p>Para oferecer todas as funcionalidades, o aplicativo solicita as seguintes permissões. Elas são solicitadas apenas no momento do primeiro uso de cada funcionalidade específica, nunca na inicialização do aplicativo.</p>
+    <!-- 12 -->
+    <section id="s12">
+        <h2><span class="num">12</span> Contato</h2>
+        <p>Dúvidas, solicitações ou notificações sobre privacidade e proteção de dados devem ser enviadas para:</p>
+        <p style="font-size:1.05rem;margin-top:8px;">
+            <strong>E-mail:</strong> <a href="mailto:iptvxfsb@gmail.com" style="color:var(--accent);">iptvxfsb@gmail.com</a>
+        </p>
+        <p style="margin-top:8px;">Todas as comunicações serão respondidas em até 15 dias úteis.</p>
+    </section>
 
-    <h3>5.1 Permissões de Acesso a Fotos e Vídeos (Android 13+)</h3>
-    <p>Nas versões mais recentes do Android (13+), o aplicativo utiliza as permissões granulares <strong>READ_MEDIA_VIDEO</strong> e <strong>READ_MEDIA_IMAGES</strong> exclusivamente para:</p>
-    <ul>
-        <li><strong>READ_MEDIA_VIDEO:</strong> Permitir que você selecione e reproduza arquivos de vídeo (.mp4, .mkv, .avi, etc.) que estão armazenados localmente no seu dispositivo.</li>
-        <li><strong>READ_MEDIA_IMAGES:</strong> Exibir miniaturas (thumbnails) dos vídeos listados, melhorando a experiência visual.</li>
-    </ul>
-    <p><strong>Importante:</strong> O aplicativo <strong>NÃO envia, compartilha, transfere ou faz qualquer tipo de upload</strong> dos seus vídeos ou imagens para a internet ou para servidores externos. Todo o acesso é estritamente local.</p>
+</div>
 
-    <h3>5.2 Outras Permissões</h3>
-    <ul>
-        <li><strong>Internet e Acesso à Rede:</strong> Essenciais para conectar ao servidor Xtream Codes e carregar streams de vídeo, bem como para carregar anúncios do AdMob.</li>
-        <li><strong>Gravação de Áudio (RECORD_AUDIO):</strong> Utilizada exclusivamente para a funcionalidade de busca por voz.</li>
-        <li><strong>Vibração (VIBRATE):</strong> Usada para fornecer feedback tátil ao digitar o PIN do controle parental.</li>
-        <li><strong>Uso de Biometria (USE_BIOMETRIC):</strong> Para permitir autenticação por impressão digital no recurso de Controle Parental.</li>
-    </ul>
+<div class="footer">
+    <p>IPTV x &copy; 2026 — FSB IPTV &middot; <a href="iptvx_tm.html">Termos de Uso</a></p>
+</div>
 
-    <h2>6. Segurança</h2>
-
-    <p>Valorizamos sua confiança ao fornecer suas informações e nos esforçamos para protegê-las. Como os dados são armazenados apenas localmente no seu dispositivo, a segurança depende das medidas que você toma para proteger seu aparelho:</p>
-    <ul>
-        <li>Usar um código de bloqueio de tela</li>
-        <li>Manter seu sistema operacional atualizado</li>
-        <li>Não compartilhar seu dispositivo com pessoas não autorizadas</li>
-    </ul>
-
-    <h2>7. Seus Direitos</h2>
-
-    <p>Você tem o direito de:</p>
-    <ul>
-        <li><strong>Acessar seus dados:</strong> Todos os seus dados estão disponíveis dentro do próprio aplicativo.</li>
-        <li><strong>Excluir seus dados:</strong> Você pode excluir todos os seus dados do aplicativo através da opção "Limpar Todos os Dados" nas configurações, ou simplesmente desinstalando o aplicativo.</li>
-        <li><strong>Sair da conta:</strong> Ao fazer logout, todos os seus dados (favoritos, progresso, configurações) são removidos do dispositivo.</li>
-        <li><strong>Opt-out de anúncios personalizados:</strong> Conforme descrito na Seção 2.5.</li>
-    </ul>
-
-    <h2>8. Controle Parental</h2>
-
-    <p>O aplicativo oferece um recurso de controle parental que permite restringir o acesso a conteúdos adultos.</p>
-    <ul>
-        <li>Você define um PIN de 4 dígitos que será solicitado para acessar conteúdos classificados como adultos.</li>
-        <li>A classificação de conteúdo adulto é baseada em categorias predefinidas e palavras-chave, podendo ser personalizada por você.</li>
-        <li>O PIN fica armazenado apenas no seu dispositivo.</li>
-    </ul>
-
-    <h2>9. Privacidade de Crianças</h2>
-
-    <p>O aplicativo não é direcionado a crianças menores de 13 anos (ou idade equivalente conforme a jurisdição local). Não coletamos intencionalmente informações pessoais de crianças. Se você é pai/mãe ou responsável e acredita que seu filho nos forneceu informações pessoais, entre em contato para que possamos tomar as medidas apropriadas.</p>
-
-    <h2>10. Alterações nesta Política de Privacidade</h2>
-
-    <p>Podemos atualizar esta Política de Privacidade periodicamente. Notificaremos você sobre quaisquer alterações publicando a nova política nesta página e atualizando a data de "última atualização" no topo.</p>
-
-    <p>Recomendamos que você revise esta Política de Privacidade regularmente para se manter informado sobre como estamos protegendo suas informações.</p>
-
-    <h2>11. Isenção de Responsabilidade sobre Conteúdo</h2>
-
-    <p>O aplicativo <strong>IPTV x</strong> é apenas um player de mídia que permite acessar conteúdo fornecido por servidores Xtream Codes de <strong>terceiros</strong>. Nós não hospedamos, produzimos, transmitimos ou disponibilizamos qualquer conteúdo audiovisual. O usuário é o único responsável por garantir que possui os direitos necessários para acessar o conteúdo através do servidor configurado.</p>
-
-    <p>Não nos responsabilizamos pelo conteúdo acessado através do aplicativo, que é de inteira responsabilidade do provedor do serviço de IPTV contratado pelo usuário, nem pelo conteúdo dos anúncios exibidos pelo Google AdMob, que são de responsabilidade exclusiva do Google e dos anunciantes.</p>
-
-    <div class="contact">
-        <p><strong>Contato:</strong> Se você tiver dúvidas sobre esta Política de Privacidade, entre em contato conosco através do e-mail: <strong>iptvxfsb@gmail.com</strong></p>
-    </div>
-
-    <p class="last-updated">Esta Política de Privacidade foi atualizada pela última vez em 28 de abril de 2026.</p>
 </body>
 </html>
